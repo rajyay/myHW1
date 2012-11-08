@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head >
+<style type="text/css"></style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function valid(){
+	var emailval=document.getElementById('email').value;
+	var usernameval=document.getElementById('username').valueOf();
+	var passwordval=document.getElementById('password').value;
+	var c_passwordval=document.getElementById('c_password').value;
+	var userNameString =usernameval.toString();
+	var passWordString=passwordval.toString();
+	var b=userNameString.charAt(0);
+	var userNameLength=userNameString.length;
+	var passWordLength=passWordString.length;
+	//var userFlag1;
+	//var userFlag2;
+	//var passWordFlag;
+	//alert(b==0);
+	
+	
+	//if(passWordLength<6)
+	 //passWordFlag=checkPassWord();
+	if((checkUserName1()==true)||(checkUserName2()==true)||(checkPassWord()==true))
+		{
+		alert("Your form cannot be validated");
+		return false;
+		}
+	else
+		alert("Successful");
+		
+}
+  
+  function checkUserName1(){
+	  //alert("First Character of UserName cannot be Number ");
+	var emailval=document.getElementById('email').value;
+	var usernameval=document.getElementById('username').valueOf();
+	var passwordval=document.getElementById('password').value;
+	var c_passwordval=document.getElementById('c_password').value;
+	var userNameString =usernameval.toString();
+	//var passWordString=passwordval.toString();
+	var b=userNameString.charAt(0);
+	//var userNameLength=userNameString.length;
+	//var passWordLength=passWordString.length;
+	  if((b==0)||(b==1)||(b==2)||(b==3)||(b==4)||(b==5)||(b==6)||(b==7)||(b==8)||(b==9))
+	 {//userFlag1=checkUserName1();
+	  return true;}
+	  else
+	  { return false;}
+	  } 
+  
+  function checkUserName2(){
+	  //alert("Numbers of characters in UserName must be at least 6 ");
+	var emailval=document.getElementById('email').value;
+	var usernameval=document.getElementById('username').valueOf();
+	var passwordval=document.getElementById('password').value;
+	var c_passwordval=document.getElementById('c_password').value;
+	var userNameString =usernameval.toString();
+	//var passWordString=passwordval.toString();
+	//var b=userNameString.charAt(0);
+	var userNameLength=userNameString.length;
+	//var passWordLength=passWordString.length;
+	  if(userNameLength<6)
+	 //userFlag2=checkUserName2();
+	  return true;
+	  else
+		  return false;
+	  } 
+   function checkUserName(){
+	 
+	  var x=checkUserName1();
+	  var y=checkUserName2();
+	  
+	  if(( x===true )||( y===true ))
+	  {  
+		  if(x==true)
+		  	alert("First Character of UserName cannot be Number ");
+		  else
+			alert("Numbers of characters in UserName must be at least 6 ");
+			  
+	  }  
+	  function checkPassWord(){
+		  var emailval=document.getElementById('email').value;
+			var usernameval=document.getElementById('username').valueOf();
+			var passwordval=document.getElementById('password').value;
+			var c_passwordval=document.getElementById('c_password').value;
+			var userNameString =usernameval.toString();
+			var passWordString=passwordval.toString();
+			var b=userNameString.charAt(0);
+			var userNameLength=userNameString.length;
+			var passWordLength=passWordString.length;
+		  if(passWordLength<6)
+		  //alert("Numbers of characters in PassWord must be at least 6");
+		  return true;
+		  else
+			  false;
+	  }
+	  function checkPassWord1(){
+		 if(checkPassWord()==true) 
+		  alert("Numbers of characters in PassWord must be at least 6");
+		 
+	  }
+  }
+</script>
+
+</head>
+<body >
+
+<a id="check" class="content" href="Home.htm">Home</a>
+<a href="Signup.htm">Signup</a>
+<a href="Login.htm">Login</a>
+<form method="post" action=" " onsubmit="return valid()">
+<label>Email</label><input type="text" id="email" /><br/>
+<label>UserName</label><input type="text" id="username" onblur="return checkUserName()"/><br/>
+<label>Password</label><input type="password" id="password" onblur="return checkPassWord1()" /><br/>
+<label>ConfirmPassword</label><input type="password" id="c_password" /><br/>
+<input type="submit" value="Signup Now"/>
+
+</form>
+</body>
+</html>
